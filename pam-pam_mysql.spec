@@ -1,6 +1,7 @@
+%define 	modulename pam_mysql
 Summary:	PAM module for auth UNIX users using MySQL data base
 Summary(pl):	modu³ PAM uwierzytelniaj±cy u¿ytkowników Linuksa poprzez bazê danych MySQL
-Name:		pam-pam_mysql
+Name:		pam-%{modulename}
 Version:	0.5
 Release:	1
 Epoch:		0
@@ -11,6 +12,7 @@ Source0:	http://dl.sourceforge.net/pam-mysql/pam_mysql-%{version}.tar.gz
 URL:		http://sourceforge.net/projects/pam-mysql/
 BuildRequires:	mysql-devel
 BuildRequires:	pam-devel
+Obsoletes:	%{modulename}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -22,7 +24,7 @@ Modu³ PAM pozwalaj±cy na uwierzytelnianie u¿ytkowników Linuksa poprzez
 bazê danych MySQL.
 
 %prep
-%setup -q -n pam_mysql
+%setup -q -n %{modulename}
 
 %build
 %{__make} CC="%{__cc}" CFLAGS="%{rpmcflags}"
