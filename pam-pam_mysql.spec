@@ -21,7 +21,7 @@ Modu³ PAM pozwalaj±cy na uwierzytelnianie u¿ytkowników Linuksa poprzez
 bazê danych MySQL.
 
 %prep
-%setup -q -n %{name}
+%setup -q -n pam_mysql
 
 %build
 %{__make} CC="%{__cc}" CFLAGS="%{rpmcflags}"
