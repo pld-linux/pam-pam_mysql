@@ -3,6 +3,7 @@ Summary(pl):	modu³ PAM uwierzytelniaj±cy u¿ytkowników Linuksa poprzez bazê danyc
 Name:		pam-pam_mysql
 Version:	0.5
 Release:	1
+Epoch:		0
 License:	GPL
 Group:		Base
 # Source0-md5:	8cf002392292ae2a5774545324739a94
