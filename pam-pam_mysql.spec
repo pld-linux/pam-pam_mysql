@@ -6,7 +6,7 @@ Release:	1
 License:	GPL
 Group:		Base
 # Source0-md5:	8cf002392292ae2a5774545324739a94
-Source0:	http://dl.sourceforge.net/pam-mysql/%{name}-%{version}.tar.gz
+Source0:	http://dl.sourceforge.net/pam-mysql/pam_mysql-%{version}.tar.gz
 URL:		http://sourceforge.net/projects/pam-mysql/
 BuildRequires:	mysql-devel
 BuildRequires:	pam-devel
