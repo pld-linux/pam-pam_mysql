@@ -35,7 +35,7 @@ bazê danych MySQL.
 %install
 rm -rf $RPM_BUILD_ROOT
 
-install -D pam_mysql.so $RPM_BUILD_ROOT/lib/security/pam_mysql.so
+install -D pam_mysql.so $RPM_BUILD_ROOT/%{_lib}/security/pam_mysql.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -43,4 +43,4 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc Readme Changelog
-%attr(755,root,root) /lib/security/pam_mysql.so
+%attr(755,root,root) /%{_lib}/security/pam_mysql.so
