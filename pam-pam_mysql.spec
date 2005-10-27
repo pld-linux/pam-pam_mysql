@@ -3,7 +3,7 @@ Summary:	PAM module for auth UNIX users using MySQL data base
 Summary(pl):	modu³ PAM uwierzytelniaj±cy u¿ytkowników Linuksa poprzez bazê danych MySQL
 Name:		pam-%{modulename}
 Version:	0.6.0
-Release:	1
+Release:	2
 Epoch:		0
 License:	GPL
 Group:		Base
