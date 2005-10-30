@@ -3,7 +3,7 @@ Summary:	PAM module for auth UNIX users using MySQL data base
 Summary(pl):	modu³ PAM uwierzytelniaj±cy u¿ytkowników Linuksa poprzez bazê danych MySQL
 Name:		pam-%{modulename}
 Version:	0.6.0
-Release:	2
+Release:	3
 Epoch:		0
 License:	GPL
 Group:		Base
@@ -17,6 +17,8 @@ BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
 Obsoletes:	pam_mysql
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_libdir	/%{_lib}
 
 %description
 Pam_mysql aims to provide a backend neutral means of authenticating
@@ -41,8 +43,6 @@ sed -i 's/sinclude(.*)//' configure.in
 rm -rf $RPM_BUILD_ROOT
 %{__make} install	\
 	DESTDIR=$RPM_BUILD_ROOT
-
-# install -D pam_mysql.so $RPM_BUILD_ROOT/%{_lib}/security/pam_mysql.so
 
 %clean
 rm -rf $RPM_BUILD_ROOT
