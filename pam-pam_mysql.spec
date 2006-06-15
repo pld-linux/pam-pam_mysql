@@ -1,20 +1,23 @@
 %define 	modulename pam_mysql
+%define	_rc	RC1
+%define	_rel	1
 Summary:	PAM module for auth UNIX users using MySQL data base
 Summary(pl):	modu³ PAM uwierzytelniaj±cy u¿ytkowników Linuksa poprzez bazê danych MySQL
 Name:		pam-%{modulename}
-Version:	0.6.0
-Release:	4
+Version:	0.7
+Release:	0.%{_rc}.%{_rel}
 Epoch:		0
 License:	GPL
 Group:		Base
-Source0:	http://dl.sourceforge.net/pam-mysql/%{modulename}-%{version}.tar.gz
-# Source0-md5:	b7f59c5450d89126b7f25fa2645b1b71
+Source0:	http://dl.sourceforge.net/pam-mysql/%{modulename}-%{version}%{_rc}.tar.gz
+# Source0-md5:	6177183d7e98dc12f2e444c9fbd4f13c
 URL:		http://sourceforge.net/projects/pam-mysql/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	mysql-devel
 BuildRequires:	pam-devel
 BuildRequires:	pkgconfig
+BuildRequires:	sed >= 4.0
 Obsoletes:	pam_mysql
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -29,8 +32,8 @@ Modu³ PAM pozwalaj±cy na uwierzytelnianie u¿ytkowników Linuksa poprzez
 bazê danych MySQL.
 
 %prep
-%setup -q -n %{modulename}-%{version}
-sed -i 's/sinclude(.*)//' configure.in
+%setup -q -n %{modulename}-%{version}%{?_rc}
+%{__sed} -i -e 's/sinclude(.*)//' configure.in
 
 %build
 %{__aclocal}
@@ -43,6 +46,8 @@ sed -i 's/sinclude(.*)//' configure.in
 rm -rf $RPM_BUILD_ROOT
 %{__make} install	\
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -f $RPM_BUILD_ROOT/%{_lib}/security/pam_mysql.la
 
 %clean
 rm -rf $RPM_BUILD_ROOT
