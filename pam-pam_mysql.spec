@@ -2,7 +2,7 @@
 %define	_rc	RC1
 %define	_rel	1
 Summary:	PAM module for auth UNIX users using MySQL data base
-Summary(pl):	modu³ PAM uwierzytelniaj±cy u¿ytkowników Linuksa poprzez bazê danych MySQL
+Summary(pl.UTF-8):   moduÅ‚ PAM uwierzytelniajÄ…cy uÅ¼ytkownikÃ³w Linuksa poprzez bazÄ™ danych MySQL
 Name:		pam-%{modulename}
 Version:	0.7
 Release:	0.%{_rc}.%{_rel}
@@ -27,9 +27,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Pam_mysql aims to provide a backend neutral means of authenticating
 users against an MySQL database.
 
-%description -l pl
-Modu³ PAM pozwalaj±cy na uwierzytelnianie u¿ytkowników Linuksa poprzez
-bazê danych MySQL.
+%description -l pl.UTF-8
+ModuÅ‚ PAM pozwalajÄ…cy na uwierzytelnianie uÅ¼ytkownikÃ³w Linuksa poprzez
+bazÄ™ danych MySQL.
 
 %prep
 %setup -q -n %{modulename}-%{version}%{?_rc}
