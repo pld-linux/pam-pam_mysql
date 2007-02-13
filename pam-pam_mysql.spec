@@ -2,7 +2,7 @@
 %define	_rc	RC1
 %define	_rel	1
 Summary:	PAM module for auth UNIX users using MySQL data base
-Summary(pl.UTF-8):   moduł PAM uwierzytelniający użytkowników Linuksa poprzez bazę danych MySQL
+Summary(pl.UTF-8):	moduł PAM uwierzytelniający użytkowników Linuksa poprzez bazę danych MySQL
 Name:		pam-%{modulename}
 Version:	0.7
 Release:	0.%{_rc}.%{_rel}
