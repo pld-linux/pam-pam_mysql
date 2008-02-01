@@ -12,7 +12,7 @@ Group:		Base
 Source0:	http://dl.sourceforge.net/pam-mysql/%{modulename}-%{version}%{_rc}.tar.gz
 # Source0-md5:	6177183d7e98dc12f2e444c9fbd4f13c
 URL:		http://sourceforge.net/projects/pam-mysql/
-BuildRequires:	autoconf
+BuildRequires:	autoconf >= 2.57
 BuildRequires:	automake
 BuildRequires:	mysql-devel
 BuildRequires:	pam-devel
@@ -41,7 +41,7 @@ bazę danych MySQL.
 %{__automake}
 %configure
 %{__make} \
-	CFLAGS="`mysql_config --cflags`"
+	CPPFLAGS="`mysql_config --include`"
 
 %install
 rm -rf $RPM_BUILD_ROOT
