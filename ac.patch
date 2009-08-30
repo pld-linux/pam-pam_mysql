@@ -1,0 +1,10 @@
+--- pam_mysql-0.7RC1/acinclude.m4~	2009-08-30 09:38:12.000000000 +0300
++++ pam_mysql-0.7RC1/acinclude.m4	2009-08-30 09:39:13.392988532 +0300
+@@ -68,6 +67,7 @@
+ 
+   AC_MSG_CHECKING([if the second argument of pam_conv.conv() takes const pointer])
+   AC_TRY_COMPILE([
++#include <stddef.h>
+ #include <pam_appl.h>
+ #include <pam_modules.h>
+   ], [
