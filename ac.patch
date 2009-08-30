@@ -8,3 +8,52 @@
  #include <pam_appl.h>
  #include <pam_modules.h>
    ], [
+--- pam_mysql-0.7RC1/acinclude.m4	2009-08-30 09:50:21.133168428 +0300
++++ pam_mysql-0.7RC1.ac/acinclude.m4	2009-08-30 09:49:27.563173568 +0300
+@@ -163,14 +163,14 @@
+ ])
+ 
+ AC_DEFUN([PAM_MYSQL_CHECK_LIBMYSQLCLIENT], [
+-  AC_MSG_CHECKING([if] $1 [is a mysql_config script])
++  AC_MSG_CHECKING([if $1 is a mysql_config script])
+ 
+-  _cfg="$1"
++  _cfg=$1
+   if test -x "$_cfg" -a -r "$_cfg" -a -f "$_cfg"; then
+     dnl $1 may be a path to mysql_config
+     AC_MSG_RESULT([yes])
+     AC_DEFINE([HAVE_MYSQL_H], [1], [Define to `1' if you have the <mysql.h> header file.])
+-    mysql_config="$1"
++    mysql_config=$1
+   else
+     AC_MSG_RESULT([no])
+     mysql_lib_path=
+@@ -178,14 +178,14 @@
+     mysql_lib_name=mysqlclient
+ 
+     for _pfx in $1; do
+-      _cfg="$_pfx/bin/mysql_config"
++      _cfg=$_pfx/bin/mysql_config
+ 
+       AC_MSG_CHECKING([mysql_config availability in $_pfx/bin])
+ 
+       if test -x "$_cfg" -a -r "$_cfg" -a -f "$_cfg"; then
+         AC_MSG_RESULT([yes])
+         AC_DEFINE([HAVE_MYSQL_H], [1], [Define to `1' if you have the <mysql.h> header file.])
+-        mysql_config="$_cfg"
++        mysql_config=$_cfg
+         break
+       else
+         AC_MSG_RESULT([no])
+@@ -251,8 +251,9 @@
+     INCLUDES="$INCLUDES -I$mysql_include_path"
+     LIBS="$LIBS -L$mysql_lib_path -l$mysql_lib_name"
+   else
+-    CFLAGS="$CFLAGS `\"$mysql_config\" --cflags`"
+-    LIBS="$LIBS `\"$mysql_config\" --libs`"
++    INCLUDES="$INCLUDES `$mysql_config --include`"
++    CFLAGS="$CFLAGS `$mysql_config --cflags`"
++    LIBS="$LIBS `$mysql_config --libs`"
+   fi
+ 
+   ac_save_CPPFLAGS="$CPPFLAGS"
