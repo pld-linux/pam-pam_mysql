@@ -1,0 +1,1 @@
+- release 2: pass CC="%{__cc}" to make parameters and change Group to Base.
