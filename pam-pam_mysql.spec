@@ -1,6 +1,6 @@
 %define 	modulename pam_mysql
 %define		subver	RC1
-%define		rel		4
+%define		rel		5
 Summary:	PAM module for auth UNIX users using MySQL data base
 Summary(pl.UTF-8):	moduł PAM uwierzytelniający użytkowników Linuksa poprzez bazę danych MySQL
 Name:		pam-%{modulename}
